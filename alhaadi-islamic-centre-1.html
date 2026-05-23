@@ -1,0 +1,1591 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Al-Haadi Islamic Centre | Online Quran Academy</title>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Cormorant+Garamond:wght@300;400;500;600;700&family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --gold: #C9A84C;
+    --gold-light: #E8C97A;
+    --gold-dark: #8B6914;
+    --green: #1A3A2A;
+    --green-mid: #2D5A3D;
+    --green-light: #3D7A52;
+    --cream: #F8F3E8;
+    --cream-dark: #EDE4CF;
+    --white: #FDFAF4;
+    --text-dark: #1A1A1A;
+    --text-mid: #3D3D3D;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Nunito', sans-serif;
+    background: var(--white);
+    color: var(--text-dark);
+    overflow-x: hidden;
+  }
+
+  /* ─── GEOMETRIC PATTERN SVG ─── */
+  .pattern-bg {
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23C9A84C' fill-opacity='0.07'%3E%3Cpath d='M30 0l8.66 5v10L30 20l-8.66-5V5zM0 20l8.66 5v10L0 40l-8.66-5V25zM60 20l8.66 5v10L60 40l-8.66-5V25zM30 40l8.66 5v10L30 60l-8.66-5V45z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+
+  /* ─── NAVBAR ─── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    background: rgba(26, 58, 42, 0.97);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(201, 168, 76, 0.3);
+    padding: 0 5%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 70px;
+  }
+
+  .nav-logo {
+    font-family: 'Amiri', serif;
+    color: var(--gold);
+    font-size: 1.4rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+  }
+
+  .nav-logo span {
+    display: block;
+    font-family: 'Nunito', sans-serif;
+    font-size: 0.65rem;
+    color: var(--gold-light);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    font-weight: 300;
+    margin-top: -3px;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    color: var(--cream);
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: color 0.3s;
+  }
+
+  .nav-links a:hover { color: var(--gold); }
+
+  .nav-cta {
+    background: var(--gold);
+    color: var(--green) !important;
+    padding: 8px 20px;
+    border-radius: 4px;
+    font-weight: 700 !important;
+    transition: background 0.3s !important;
+  }
+
+  .nav-cta:hover { background: var(--gold-light) !important; color: var(--green) !important; }
+
+  /* ─── HERO ─── */
+  .hero {
+    min-height: 100vh;
+    background: linear-gradient(160deg, var(--green) 0%, var(--green-mid) 50%, #1e4a30 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    padding: 100px 5% 60px;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23C9A84C' fill-opacity='0.05'%3E%3Cpath d='M40 0l11.55 6.67v13.33L40 26.67l-11.55-6.67V6.67zM0 26.67l11.55 6.66v13.34L0 53.33l-11.55-6.66V33.33zM80 26.67l11.55 6.66v13.34L80 53.33l-11.55-6.66V33.33zM40 53.33l11.55 6.67v13.33L40 80l-11.55-6.67V60z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+
+  .hero-glow {
+    position: absolute;
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(201,168,76,0.15) 0%, transparent 70%);
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+  }
+
+  .hero-ornament {
+    font-family: 'Amiri', serif;
+    font-size: clamp(3rem, 8vw, 6rem);
+    color: var(--gold);
+    opacity: 0.2;
+    position: absolute;
+    top: 15%; left: 5%;
+    animation: float 6s ease-in-out infinite;
+    pointer-events: none;
+  }
+
+  .hero-ornament-2 {
+    font-family: 'Amiri', serif;
+    font-size: clamp(2rem, 5vw, 4rem);
+    color: var(--gold);
+    opacity: 0.15;
+    position: absolute;
+    bottom: 20%; right: 5%;
+    animation: float 8s ease-in-out infinite reverse;
+    pointer-events: none;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+  }
+
+  .hero-content { position: relative; z-index: 2; max-width: 800px; }
+
+  .hero-bismillah {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1rem, 2.5vw, 1.4rem);
+    color: var(--gold);
+    margin-bottom: 1rem;
+    letter-spacing: 1px;
+    font-style: italic;
+    animation: fadeDown 1s ease both;
+  }
+
+  .hero-badge {
+    display: inline-block;
+    background: rgba(201,168,76,0.15);
+    border: 1px solid rgba(201,168,76,0.4);
+    color: var(--gold-light);
+    padding: 6px 20px;
+    border-radius: 30px;
+    font-size: 0.75rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+    animation: fadeDown 1s 0.2s ease both;
+  }
+
+  .hero h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.5rem, 7vw, 5.5rem);
+    color: var(--cream);
+    font-weight: 600;
+    line-height: 1.1;
+    margin-bottom: 0.5rem;
+    animation: fadeDown 1s 0.3s ease both;
+  }
+
+  .hero h1 span { color: var(--gold); }
+
+  .hero-subtitle {
+    font-family: 'Amiri', serif;
+    font-size: clamp(1rem, 2.5vw, 1.4rem);
+    color: rgba(248,243,232,0.7);
+    margin-bottom: 2rem;
+    animation: fadeDown 1s 0.4s ease both;
+    font-style: italic;
+  }
+
+  .hero-desc {
+    font-size: 1rem;
+    color: rgba(248,243,232,0.8);
+    max-width: 550px;
+    margin: 0 auto 2.5rem;
+    line-height: 1.8;
+    animation: fadeDown 1s 0.5s ease both;
+  }
+
+  .hero-btns {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    animation: fadeDown 1s 0.6s ease both;
+  }
+
+  .btn-primary {
+    background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+    color: var(--green);
+    padding: 14px 35px;
+    border-radius: 6px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: all 0.3s;
+    box-shadow: 0 4px 20px rgba(201,168,76,0.3);
+  }
+
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(201,168,76,0.5);
+  }
+
+  .btn-secondary {
+    background: transparent;
+    color: var(--cream);
+    padding: 14px 35px;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    text-decoration: none;
+    border: 1px solid rgba(248,243,232,0.4);
+    transition: all 0.3s;
+  }
+
+  .btn-secondary:hover {
+    border-color: var(--gold);
+    color: var(--gold);
+    transform: translateY(-2px);
+  }
+
+  .hero-stats {
+    display: flex;
+    gap: 3rem;
+    justify-content: center;
+    margin-top: 3rem;
+    animation: fadeDown 1s 0.7s ease both;
+    flex-wrap: wrap;
+  }
+
+  .stat { text-align: center; }
+  .stat-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.5rem;
+    color: var(--gold);
+    font-weight: 700;
+    line-height: 1;
+  }
+  .stat-label {
+    font-size: 0.7rem;
+    color: rgba(248,243,232,0.6);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-top: 4px;
+  }
+
+  @keyframes fadeDown {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ─── DIVIDER ─── */
+  .divider {
+    text-align: center;
+    padding: 20px;
+    background: var(--cream-dark);
+    color: var(--gold-dark);
+    font-family: 'Amiri', serif;
+    font-size: 1.5rem;
+    letter-spacing: 10px;
+  }
+
+  /* ─── SECTIONS ─── */
+  section { padding: 80px 5%; }
+
+  .section-label {
+    font-size: 0.7rem;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--gold-dark);
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+  }
+
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2rem, 4vw, 3rem);
+    color: var(--green);
+    font-weight: 600;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+  }
+
+  .section-title span { color: var(--gold-dark); }
+
+  .section-desc {
+    color: var(--text-mid);
+    line-height: 1.8;
+    max-width: 600px;
+    font-size: 0.95rem;
+  }
+
+  /* ─── ABOUT ─── */
+  .about {
+    background: var(--white);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: center;
+  }
+
+  .about-visual {
+    position: relative;
+  }
+
+  .about-card {
+    background: linear-gradient(135deg, var(--green) 0%, var(--green-mid) 100%);
+    border-radius: 16px;
+    padding: 3rem;
+    text-align: center;
+    color: var(--cream);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .about-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23C9A84C' fill-opacity='0.08'%3E%3Cpath d='M20 0l5.77 3.33v6.67L20 13.33l-5.77-3.33V3.33z'/%3E%3C/g%3E%3C/svg%3E");
+  }
+
+  .about-avatar {
+    width: 100px; height: 100px;
+    border-radius: 50%;
+    background: rgba(201,168,76,0.2);
+    border: 3px solid var(--gold);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Amiri', serif;
+    font-size: 2.5rem;
+    color: var(--gold);
+    margin: 0 auto 1rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  .about-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.6rem;
+    color: var(--gold);
+    font-weight: 600;
+    position: relative;
+    z-index: 1;
+  }
+
+  .about-role {
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(248,243,232,0.6);
+    margin-top: 4px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .about-quote {
+    font-family: 'Amiri', serif;
+    font-style: italic;
+    font-size: 1.1rem;
+    color: rgba(248,243,232,0.85);
+    margin-top: 1.5rem;
+    line-height: 1.7;
+    position: relative;
+    z-index: 1;
+  }
+
+  .float-badge {
+    position: absolute;
+    bottom: -15px; right: -15px;
+    background: var(--gold);
+    color: var(--green);
+    padding: 12px 20px;
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: 0.85rem;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+  }
+
+  /* ─── COURSES ─── */
+  .courses { background: var(--cream); }
+  .courses-header { text-align: center; margin-bottom: 3rem; }
+  .courses-header .section-desc { margin: 0 auto; }
+
+  .courses-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .course-card {
+    background: var(--white);
+    border-radius: 12px;
+    padding: 2rem;
+    border: 1px solid rgba(201,168,76,0.2);
+    transition: all 0.3s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .course-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 4px; height: 100%;
+    background: linear-gradient(to bottom, var(--gold), var(--gold-dark));
+    border-radius: 4px 0 0 4px;
+  }
+
+  .course-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+    border-color: var(--gold);
+  }
+
+  .course-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .course-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4rem;
+    color: var(--green);
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+
+  .course-desc {
+    font-size: 0.88rem;
+    color: var(--text-mid);
+    line-height: 1.7;
+  }
+
+  .course-tag {
+    display: inline-block;
+    background: rgba(26,58,42,0.08);
+    color: var(--green-mid);
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-size: 0.72rem;
+    font-weight: 600;
+    margin-top: 1rem;
+    letter-spacing: 0.5px;
+  }
+
+  /* ─── PRICING ─── */
+  .pricing { background: var(--white); }
+  .pricing-header { text-align: center; margin-bottom: 3rem; }
+
+  .pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.5rem;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .price-card {
+    border-radius: 16px;
+    padding: 2.5rem 2rem;
+    text-align: center;
+    transition: all 0.3s;
+    position: relative;
+  }
+
+  .price-card.basic {
+    background: var(--cream);
+    border: 1px solid rgba(201,168,76,0.3);
+  }
+
+  .price-card.popular {
+    background: linear-gradient(135deg, var(--green) 0%, var(--green-mid) 100%);
+    color: var(--cream);
+    transform: scale(1.05);
+    box-shadow: 0 20px 60px rgba(26,58,42,0.25);
+  }
+
+  .popular-badge {
+    position: absolute;
+    top: -12px; left: 50%;
+    transform: translateX(-50%);
+    background: var(--gold);
+    color: var(--green);
+    padding: 4px 20px;
+    border-radius: 20px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  .price-duration {
+    font-size: 0.75rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    opacity: 0.7;
+  }
+
+  .price-amount {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 3.5rem;
+    font-weight: 700;
+    line-height: 1;
+    color: var(--gold);
+    margin-bottom: 0.25rem;
+  }
+
+  .price-amount .currency {
+    font-size: 1.5rem;
+    vertical-align: top;
+    margin-top: 0.5rem;
+    display: inline-block;
+  }
+
+  .price-period {
+    font-size: 0.8rem;
+    opacity: 0.6;
+    margin-bottom: 1.5rem;
+  }
+
+  .price-features {
+    list-style: none;
+    margin-bottom: 2rem;
+    text-align: left;
+  }
+
+  .price-features li {
+    padding: 6px 0;
+    font-size: 0.875rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    opacity: 0.9;
+  }
+
+  .price-features li::before {
+    content: '✦';
+    color: var(--gold);
+    font-size: 0.6rem;
+    flex-shrink: 0;
+  }
+
+  .price-btn {
+    display: block;
+    padding: 12px;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: all 0.3s;
+  }
+
+  .price-card.basic .price-btn {
+    background: var(--green);
+    color: var(--cream);
+  }
+
+  .price-card.popular .price-btn {
+    background: var(--gold);
+    color: var(--green);
+  }
+
+  .price-btn:hover { opacity: 0.9; transform: translateY(-2px); }
+
+  /* ─── SCHEDULE ─── */
+  .schedule { background: var(--cream); text-align: center; }
+
+  .schedule-grid {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 2.5rem;
+  }
+
+  .day-chip {
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+  }
+
+  .day-chip.active {
+    background: var(--green);
+    color: var(--gold);
+    box-shadow: 0 4px 15px rgba(26,58,42,0.2);
+  }
+
+  .day-chip.off {
+    background: #e0e0e0;
+    color: #999;
+    text-decoration: line-through;
+  }
+
+  .schedule-note {
+    margin-top: 2rem;
+    font-size: 0.9rem;
+    color: var(--text-mid);
+    font-style: italic;
+  }
+
+  /* ─── WHY US ─── */
+  .why { background: var(--white); }
+  .why-header { text-align: center; margin-bottom: 3rem; }
+
+  .why-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .why-card {
+    text-align: center;
+    padding: 2rem 1.5rem;
+  }
+
+  .why-icon {
+    width: 64px; height: 64px;
+    background: linear-gradient(135deg, rgba(26,58,42,0.08), rgba(201,168,76,0.15));
+    border: 1px solid rgba(201,168,76,0.3);
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    margin: 0 auto 1rem;
+  }
+
+  .why-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.2rem;
+    color: var(--green);
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+
+  .why-desc {
+    font-size: 0.85rem;
+    color: var(--text-mid);
+    line-height: 1.7;
+  }
+
+  /* ─── CONTACT ─── */
+  .contact {
+    background: linear-gradient(135deg, var(--green) 0%, #0f2a1a 100%);
+    color: var(--cream);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .contact::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23C9A84C' fill-opacity='0.05'%3E%3Cpath d='M30 0l8.66 5v10L30 20l-8.66-5V5z'/%3E%3C/g%3E%3C/svg%3E");
+  }
+
+  .contact .section-title { color: var(--cream); }
+
+  .contact-cards {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 2.5rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  .contact-card {
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(201,168,76,0.3);
+    border-radius: 12px;
+    padding: 2rem 2.5rem;
+    transition: all 0.3s;
+    text-decoration: none;
+    color: var(--cream);
+  }
+
+  .contact-card:hover {
+    background: rgba(201,168,76,0.15);
+    border-color: var(--gold);
+    transform: translateY(-4px);
+  }
+
+  .contact-card-icon { font-size: 2rem; margin-bottom: 0.75rem; }
+
+  .contact-card-label {
+    font-size: 0.7rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gold-light);
+    margin-bottom: 0.4rem;
+  }
+
+  .contact-card-value {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.2rem;
+    font-weight: 500;
+  }
+
+  .contact-cta {
+    margin-top: 3rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  .contact-cta p {
+    font-family: 'Amiri', serif;
+    font-size: 1.3rem;
+    color: rgba(248,243,232,0.7);
+    font-style: italic;
+    margin-bottom: 1.5rem;
+  }
+
+  /* ─── FOOTER ─── */
+  footer {
+    background: #0a1a10;
+    color: rgba(248,243,232,0.5);
+    text-align: center;
+    padding: 2rem 5%;
+    font-size: 0.82rem;
+  }
+
+  footer span { color: var(--gold); }
+
+  /* ─── WHATSAPP FLOAT ─── */
+  .whatsapp-float {
+    position: fixed;
+    bottom: 30px; right: 30px;
+    z-index: 200;
+    width: 58px; height: 58px;
+    background: #25D366;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 20px rgba(37,211,102,0.4);
+    text-decoration: none;
+    transition: all 0.3s;
+    animation: pulse 2s infinite;
+  }
+
+  .whatsapp-float:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 30px rgba(37,211,102,0.6);
+  }
+
+  .whatsapp-float svg {
+    width: 30px; height: 30px;
+    fill: white;
+  }
+
+  @keyframes pulse {
+    0%, 100% { box-shadow: 0 4px 20px rgba(37,211,102,0.4); }
+    50% { box-shadow: 0 4px 35px rgba(37,211,102,0.7); }
+  }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 768px) {
+    .nav-links { display: none; }
+    .about { grid-template-columns: 1fr; gap: 2rem; }
+    .price-card.popular { transform: scale(1); }
+    .hero-stats { gap: 1.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- WhatsApp Float -->
+<a href="https://wa.me/923105844512" class="whatsapp-float" target="_blank" title="Chat on WhatsApp">
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+  </svg>
+</a>
+
+<!-- NAVBAR -->
+<nav>
+  <div class="nav-logo">
+    Al-Haadi Islamic Centre
+    <span>Online Quran Academy</span>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#courses">Courses</a></li>
+    <li><a href="#pricing">Pricing</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="https://wa.me/923105844512" class="nav-cta">Enroll Now</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-glow"></div>
+  <div class="hero-ornament">☽</div>
+  <div class="hero-ornament-2">✦</div>
+  <div class="hero-content">
+    <div class="hero-bismillah">In the Name of Allah, the Most Gracious, the Most Merciful</div>
+    <div class="hero-badge">✦ Online Quran Academy ✦</div>
+    <h1>Learn the <span>Holy Quran</span><br>From Home</h1>
+    <p class="hero-subtitle">— Professional Online Quran Teaching —</p>
+    <p class="hero-desc">
+      Al-Haadi Islamic Centre offers one-on-one online Quran classes for children and adults.
+      Learn Nazra, Tajweed, Hifz, Masnoon Duas, Kalmas, Namaz, and Islamic Knowledge from a qualified teacher.
+    </p>
+    <div class="hero-btns">
+      <a href="https://wa.me/923105844512" class="btn-primary">Start Free Trial</a>
+      <a href="#courses" class="btn-secondary">View Courses</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat">
+        <div class="stat-num">30+</div>
+        <div class="stat-label">Students Taught</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">5</div>
+        <div class="stat-label">Days a Week</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">1:1</div>
+        <div class="stat-label">Live Classes</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">7+</div>
+        <div class="stat-label">Subjects</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider">✦ &nbsp; ✦ &nbsp; ✦</div>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="about-text">
+    <p class="section-label">About The Teacher</p>
+    <h2 class="section-title">Meet <span>Ustaz Ehtisham</span><br>Ul Haq</h2>
+    <p class="section-desc" style="margin-bottom:1rem;">
+      A dedicated and experienced Quran teacher offering personalized online classes for students of all ages and levels — from complete beginners to advanced learners.
+    </p>
+    <p class="section-desc">
+      Classes are conducted in a friendly, structured, and Islamic environment. Whether you are a child just starting Nazra or an adult wanting to perfect Tajweed, our Academy has a program for you.
+    </p>
+    <br>
+    <a href="https://wa.me/923105844512" class="btn-primary" style="display:inline-block; margin-top:1rem;">Book a Free Trial Class</a>
+  </div>
+
+  <!-- CARTOON ANIMATED PROFILE CARD -->
+  <div class="about-visual">
+    <div class="cartoon-scene">
+
+      <!-- Floating stars background -->
+      <div class="cs-star cs-s1">⭐</div>
+      <div class="cs-star cs-s2">✨</div>
+      <div class="cs-star cs-s3">⭐</div>
+      <div class="cs-star cs-s4">✨</div>
+      <div class="cs-star cs-s5">🌟</div>
+
+      <!-- Main card -->
+      <div class="cartoon-card">
+
+        <!-- Bouncing clouds on top -->
+        <div class="cc-cloud cc-cloud1">☁️</div>
+        <div class="cc-cloud cc-cloud2">☁️</div>
+
+        <!-- Cartoon avatar -->
+        <div class="cc-avatar-area">
+          <div class="cc-shadow"></div>
+          <div class="cc-avatar-bounce">
+            <div class="cc-avatar">
+              <!-- Face -->
+              <div class="cc-face">
+                <div class="cc-eyes">
+                  <div class="cc-eye cc-eye-l"><div class="cc-pupil"></div></div>
+                  <div class="cc-eye cc-eye-r"><div class="cc-pupil"></div></div>
+                </div>
+                <div class="cc-smile">😊</div>
+              </div>
+              <!-- Cap -->
+              <div class="cc-cap">🎓</div>
+            </div>
+          </div>
+          <!-- Sparkles around avatar -->
+          <div class="cc-sparkle cc-sp1">✦</div>
+          <div class="cc-sparkle cc-sp2">✦</div>
+          <div class="cc-sparkle cc-sp3">✦</div>
+        </div>
+
+        <!-- Name with typewriter -->
+        <div class="cc-name">Ehtisham Ul Haq</div>
+        <div class="cc-role-tag">
+          <span class="cc-role-text">Quran Teacher & Founder</span>
+        </div>
+
+        <!-- Animated stats row -->
+        <div class="cc-stats">
+          <div class="cc-stat-box cc-sb1">
+            <div class="cc-stat-icon">👨‍🎓</div>
+            <div class="cc-stat-num">30+</div>
+            <div class="cc-stat-lbl">Students</div>
+          </div>
+          <div class="cc-stat-box cc-sb2">
+            <div class="cc-stat-icon">📚</div>
+            <div class="cc-stat-num">7+</div>
+            <div class="cc-stat-lbl">Subjects</div>
+          </div>
+          <div class="cc-stat-box cc-sb3">
+            <div class="cc-stat-icon">⭐</div>
+            <div class="cc-stat-num">5.0</div>
+            <div class="cc-stat-lbl">Rating</div>
+          </div>
+        </div>
+
+        <!-- Quote bubble -->
+        <div class="cc-bubble">
+          <div class="cc-bubble-tail"></div>
+          <p>"Quality Quran education for everyone, everywhere!"</p>
+        </div>
+
+        <!-- Bouncing book -->
+        <div class="cc-book">📖</div>
+
+        <!-- Academy badge -->
+        <div class="cc-badge">
+          <span class="cc-badge-icon">🕌</span>
+          <span>Al-Haadi Islamic Centre</span>
+        </div>
+
+      </div>
+
+      <!-- Ground bounce elements -->
+      <div class="cs-ground-star cs-gs1">⭐</div>
+      <div class="cs-ground-star cs-gs2">✨</div>
+
+    </div>
+  </div>
+</section>
+
+<style>
+/* ─── CARTOON ANIMATED PROFILE ─── */
+.cartoon-scene {
+  position: relative;
+  width: 100%;
+  max-width: 380px;
+  margin: 0 auto;
+  padding: 20px 0 10px;
+}
+
+/* Floating background stars */
+.cs-star {
+  position: absolute;
+  font-size: 1.4rem;
+  pointer-events: none;
+  z-index: 0;
+}
+.cs-s1 { top: 5%;  left: 5%;  animation: starFloat 3s ease-in-out infinite; }
+.cs-s2 { top: 10%; right: 8%; animation: starFloat 4s ease-in-out infinite 0.5s; }
+.cs-s3 { top: 30%; left: 2%; animation: starFloat 3.5s ease-in-out infinite 1s; }
+.cs-s4 { top: 20%; right: 3%; animation: starFloat 2.8s ease-in-out infinite 1.5s; }
+.cs-s5 { top: 50%; right: 0%; animation: starFloat 4.2s ease-in-out infinite 0.8s; }
+
+@keyframes starFloat {
+  0%,100% { transform: translateY(0) rotate(0deg) scale(1); opacity: 0.7; }
+  50%      { transform: translateY(-14px) rotate(20deg) scale(1.3); opacity: 1; }
+}
+
+/* Main card */
+.cartoon-card {
+  position: relative;
+  z-index: 1;
+  background: linear-gradient(160deg, #1e4a30 0%, #0f2a1a 100%);
+  border-radius: 30px;
+  border: 3px solid var(--gold);
+  padding: 1.5rem 1.5rem 1.2rem;
+  text-align: center;
+  box-shadow:
+    0 8px 0 rgba(0,0,0,0.35),
+    0 16px 40px rgba(0,0,0,0.4),
+    inset 0 1px 0 rgba(255,255,255,0.05);
+  animation: cardPop 0.7s cubic-bezier(0.34,1.56,0.64,1) both;
+  transition: transform 0.3s;
+}
+.cartoon-card:hover { transform: translateY(-6px) rotate(-0.5deg); }
+
+@keyframes cardPop {
+  from { opacity:0; transform: scale(0.5) rotate(-5deg); }
+  to   { opacity:1; transform: scale(1) rotate(0deg); }
+}
+
+/* Bouncing clouds */
+.cc-cloud {
+  position: absolute;
+  font-size: 2rem;
+  top: -18px;
+  pointer-events: none;
+  animation: cloudBounce 3s ease-in-out infinite;
+}
+.cc-cloud1 { left: 15%; animation-delay: 0s; }
+.cc-cloud2 { right: 15%; animation-delay: 1.2s; }
+@keyframes cloudBounce {
+  0%,100% { transform: translateY(0) scale(1); }
+  50%      { transform: translateY(-8px) scale(1.1); }
+}
+
+/* Avatar area */
+.cc-avatar-area {
+  position: relative;
+  width: 120px;
+  height: 130px;
+  margin: 0.5rem auto 0.8rem;
+}
+
+.cc-shadow {
+  position: absolute;
+  bottom: 0; left: 50%;
+  transform: translateX(-50%);
+  width: 80px; height: 12px;
+  background: rgba(0,0,0,0.3);
+  border-radius: 50%;
+  animation: shadowPulse 1.2s ease-in-out infinite;
+}
+@keyframes shadowPulse {
+  0%,100% { width:80px; opacity:0.3; }
+  50%      { width:60px; opacity:0.15; }
+}
+
+.cc-avatar-bounce {
+  animation: avatarBounce 1.2s ease-in-out infinite;
+}
+@keyframes avatarBounce {
+  0%,100% { transform: translateY(0); }
+  50%      { transform: translateY(-12px); }
+}
+
+.cc-avatar {
+  width: 100px; height: 100px;
+  background: linear-gradient(135deg, #f5c842, #e8a020);
+  border-radius: 50%;
+  border: 4px solid var(--gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  position: relative;
+  box-shadow: 0 6px 0 rgba(0,0,0,0.25), 0 0 20px rgba(201,168,76,0.4);
+}
+
+.cc-face {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+.cc-eyes { display: flex; gap: 12px; margin-bottom: 2px; }
+.cc-eye {
+  width: 14px; height: 14px;
+  background: #fff;
+  border-radius: 50%;
+  border: 2px solid #222;
+  display: flex; align-items: center; justify-content: center;
+  animation: eyeBlink 4s ease-in-out infinite;
+}
+.cc-eye-l { animation-delay: 0s; }
+.cc-eye-r { animation-delay: 0.1s; }
+@keyframes eyeBlink {
+  0%,90%,100% { transform: scaleY(1); }
+  95%           { transform: scaleY(0.1); }
+}
+.cc-pupil {
+  width: 6px; height: 6px;
+  background: #222;
+  border-radius: 50%;
+  animation: pupilMove 5s ease-in-out infinite;
+}
+@keyframes pupilMove {
+  0%,100% { transform: translate(0,0); }
+  25%      { transform: translate(2px,1px); }
+  50%      { transform: translate(-2px,0); }
+  75%      { transform: translate(1px,-1px); }
+}
+.cc-smile { font-size: 1.2rem; line-height: 1; }
+
+.cc-cap {
+  position: absolute;
+  top: -18px; left: 50%;
+  transform: translateX(-50%);
+  font-size: 1.8rem;
+  animation: capWiggle 2s ease-in-out infinite;
+}
+@keyframes capWiggle {
+  0%,100% { transform: translateX(-50%) rotate(-5deg); }
+  50%      { transform: translateX(-50%) rotate(5deg); }
+}
+
+/* Sparkles around avatar */
+.cc-sparkle {
+  position: absolute;
+  color: var(--gold);
+  font-size: 0.9rem;
+  animation: sparklePop 1.5s ease-in-out infinite;
+}
+.cc-sp1 { top: 5px;  right: -2px; animation-delay: 0s; }
+.cc-sp2 { top: 30px; left: -4px;  animation-delay: 0.5s; }
+.cc-sp3 { bottom: 10px; right: 0px; animation-delay: 1s; }
+@keyframes sparklePop {
+  0%,100% { transform: scale(0.5) rotate(0deg); opacity: 0.4; }
+  50%      { transform: scale(1.4) rotate(180deg); opacity: 1; }
+}
+
+/* Name */
+.cc-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.6rem;
+  color: var(--cream);
+  font-weight: 700;
+  animation: nameSlide 0.8s 0.4s cubic-bezier(0.34,1.56,0.64,1) both;
+}
+@keyframes nameSlide {
+  from { opacity:0; transform: translateX(-30px); }
+  to   { opacity:1; transform: translateX(0); }
+}
+
+/* Role tag */
+.cc-role-tag {
+  display: inline-block;
+  background: var(--gold);
+  color: var(--green);
+  border-radius: 20px;
+  padding: 4px 16px;
+  margin: 6px 0 1rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  animation: tagBounce 2s ease-in-out infinite 1s;
+}
+@keyframes tagBounce {
+  0%,100% { transform: scale(1); }
+  50%      { transform: scale(1.05); }
+}
+
+/* Stats boxes */
+.cc-stats {
+  display: flex;
+  gap: 0.6rem;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+.cc-stat-box {
+  background: rgba(255,255,255,0.06);
+  border: 2px solid rgba(201,168,76,0.3);
+  border-radius: 14px;
+  padding: 0.6rem 0.5rem;
+  flex: 1;
+  transition: transform 0.2s;
+  animation: statPop 0.6s cubic-bezier(0.34,1.56,0.64,1) both;
+}
+.cc-stat-box:hover { transform: scale(1.08) rotate(-2deg); }
+.cc-sb1 { animation-delay: 0.5s; }
+.cc-sb2 { animation-delay: 0.7s; }
+.cc-sb3 { animation-delay: 0.9s; }
+@keyframes statPop {
+  from { opacity:0; transform: scale(0.3) rotate(10deg); }
+  to   { opacity:1; transform: scale(1) rotate(0deg); }
+}
+.cc-stat-icon { font-size: 1.2rem; }
+.cc-stat-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.3rem;
+  color: var(--gold);
+  font-weight: 700;
+  line-height: 1.1;
+}
+.cc-stat-lbl {
+  font-size: 0.6rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: rgba(248,243,232,0.5);
+}
+
+/* Speech bubble */
+.cc-bubble {
+  position: relative;
+  background: rgba(255,255,255,0.07);
+  border: 2px solid rgba(201,168,76,0.25);
+  border-radius: 16px;
+  padding: 0.8rem 1rem;
+  margin-bottom: 0.8rem;
+  animation: bubbleWobble 4s ease-in-out infinite;
+}
+.cc-bubble p {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 0.9rem;
+  color: rgba(248,243,232,0.8);
+  line-height: 1.5;
+}
+.cc-bubble-tail {
+  position: absolute;
+  top: -10px; left: 30px;
+  width: 0; height: 0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-bottom: 10px solid rgba(201,168,76,0.25);
+}
+@keyframes bubbleWobble {
+  0%,100% { transform: rotate(0deg); }
+  25%      { transform: rotate(0.5deg); }
+  75%      { transform: rotate(-0.5deg); }
+}
+
+/* Bouncing book */
+.cc-book {
+  position: absolute;
+  right: -10px; top: 40%;
+  font-size: 1.8rem;
+  animation: bookBounce 1.5s ease-in-out infinite;
+}
+@keyframes bookBounce {
+  0%,100% { transform: translateY(0) rotate(0deg); }
+  50%      { transform: translateY(-10px) rotate(10deg); }
+}
+
+/* Academy badge */
+.cc-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(201,168,76,0.1);
+  border: 1px solid rgba(201,168,76,0.3);
+  border-radius: 20px;
+  padding: 5px 14px;
+  font-size: 0.72rem;
+  color: var(--gold-light);
+  letter-spacing: 0.5px;
+  animation: badgePulse 2.5s ease-in-out infinite;
+}
+.cc-badge-icon { font-size: 1rem; }
+@keyframes badgePulse {
+  0%,100% { box-shadow: 0 0 0 0 rgba(201,168,76,0.2); }
+  50%      { box-shadow: 0 0 0 6px rgba(201,168,76,0); }
+}
+
+/* Ground stars */
+.cs-ground-star {
+  position: absolute;
+  font-size: 1rem;
+  bottom: 5px;
+  pointer-events: none;
+  animation: groundSpin 3s linear infinite;
+}
+.cs-gs1 { left: 10%; animation-delay: 0s; }
+.cs-gs2 { right: 10%; animation-delay: 1s; }
+@keyframes groundSpin {
+  from { transform: rotate(0deg) scale(0.8); opacity:0.5; }
+  to   { transform: rotate(360deg) scale(1.1); opacity:1; }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .cc-book { display: none; }
+  .cs-star { font-size: 1rem; }
+}
+</style>
+
+<!-- COURSES -->
+<section class="courses" id="courses">
+  <div class="courses-header">
+    <p class="section-label">What We Teach</p>
+    <h2 class="section-title">Our <span>Courses</span></h2>
+    <p class="section-desc">Comprehensive Islamic education covering Quran recitation, memorization, and essential Islamic knowledge.</p>
+  </div>
+  <div class="courses-grid">
+    <div class="course-card">
+      <div class="course-icon">📖</div>
+      <div class="course-title">Nazra (Quran Reading)</div>
+      <div class="course-desc">Learn to read the Quran correctly from Alif-Ba-Ta. Perfect for beginners and children starting their Quranic journey.</div>
+      <span class="course-tag">Beginner Friendly</span>
+    </div>
+    <div class="course-card">
+      <div class="course-icon">🎯</div>
+      <div class="course-title">Tajweed</div>
+      <div class="course-desc">Master the rules of Tajweed to recite the Quran beautifully and correctly, following the authentic method of recitation.</div>
+      <span class="course-tag">All Levels</span>
+    </div>
+    <div class="course-card">
+      <div class="course-icon">🌟</div>
+      <div class="course-title">Hifz (Memorization)</div>
+      <div class="course-desc">Embark on the blessed journey of memorizing the Holy Quran with structured guidance and regular revision sessions.</div>
+      <span class="course-tag">Advanced</span>
+    </div>
+    <div class="course-card">
+      <div class="course-icon">🤲</div>
+      <div class="course-title">Masnoon Duas &amp; Kalmas</div>
+      <div class="course-desc">Learn essential daily duas and the six Kalmas — the foundation of every Muslim's daily life and faith.</div>
+      <span class="course-tag">Essential</span>
+    </div>
+    <div class="course-card">
+      <div class="course-icon">🕌</div>
+      <div class="course-title">Namaz (Salah)</div>
+      <div class="course-desc">Learn the correct method of performing Salah including all postures, recitations, and the spiritual importance of prayer.</div>
+      <span class="course-tag">Fundamental</span>
+    </div>
+    <div class="course-card">
+      <div class="course-icon">📚</div>
+      <div class="course-title">Tafseer (Urdu)</div>
+      <div class="course-desc">Understand the meaning and explanation of the Quran in Urdu — deepen your connection with Allah's words.</div>
+      <span class="course-tag">Urdu Only</span>
+    </div>
+    <div class="course-card">
+      <div class="course-icon">🌙</div>
+      <div class="course-title">Basic Islamic Knowledge</div>
+      <div class="course-desc">Essential Islamic education covering beliefs, pillars of Islam, Islamic history, and daily life guidance for Muslims.</div>
+      <span class="course-tag">All Ages</span>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="pricing" id="pricing">
+  <div class="pricing-header">
+    <p class="section-label">Affordable Plans</p>
+    <h2 class="section-title">Class <span>Pricing</span></h2>
+    <p class="section-desc" style="margin:0 auto;">Flexible class durations to fit every student's schedule and learning pace.</p>
+  </div>
+  <div class="pricing-grid">
+    <div class="price-card basic">
+      <div class="price-duration">30 Minutes</div>
+      <div class="price-amount"><span class="currency">Rs.</span>15,000</div>
+      <div class="price-period">per month</div>
+      <ul class="price-features">
+        <li>5 Classes per Week</li>
+        <li>Mon – Fri Schedule</li>
+        <li>All Subjects Available</li>
+        <li>One-on-One Live Class</li>
+        <li>Progress Tracking</li>
+      </ul>
+      <a href="https://wa.me/923105844512" class="price-btn">Enroll Now</a>
+    </div>
+
+    <div class="price-card popular">
+      <div class="popular-badge">Most Popular</div>
+      <div class="price-duration">40 Minutes</div>
+      <div class="price-amount"><span class="currency">Rs.</span>18,000</div>
+      <div class="price-period">per month</div>
+      <ul class="price-features">
+        <li>5 Classes per Week</li>
+        <li>Mon – Fri Schedule</li>
+        <li>All Subjects Available</li>
+        <li>One-on-One Live Class</li>
+        <li>Progress Tracking</li>
+      </ul>
+      <a href="https://wa.me/923105844512" class="price-btn">Enroll Now</a>
+    </div>
+
+    <div class="price-card basic">
+      <div class="price-duration">60 Minutes</div>
+      <div class="price-amount"><span class="currency">Rs.</span>25,000</div>
+      <div class="price-period">per month</div>
+      <ul class="price-features">
+        <li>5 Classes per Week</li>
+        <li>Mon – Fri Schedule</li>
+        <li>All Subjects Available</li>
+        <li>One-on-One Live Class</li>
+        <li>Progress Tracking</li>
+      </ul>
+      <a href="https://wa.me/923105844512" class="price-btn">Enroll Now</a>
+    </div>
+  </div>
+</section>
+
+<!-- SCHEDULE -->
+<section class="schedule" id="schedule">
+  <p class="section-label">Timetable</p>
+  <h2 class="section-title">Class <span>Schedule</span></h2>
+  <p class="section-desc" style="margin:0 auto;">Classes are held 5 days a week. Weekends are off for students to rest and revise.</p>
+  <div class="schedule-grid">
+    <div class="day-chip active">Monday</div>
+    <div class="day-chip active">Tuesday</div>
+    <div class="day-chip active">Wednesday</div>
+    <div class="day-chip active">Thursday</div>
+    <div class="day-chip active">Friday</div>
+    <div class="day-chip off">Saturday</div>
+    <div class="day-chip off">Sunday</div>
+  </div>
+  <p class="schedule-note">✦ Class timings are flexible and can be adjusted according to student's timezone</p>
+</section>
+
+<!-- PLATFORMS & LANGUAGES -->
+<section style="background: var(--white); padding: 80px 5%;" id="platforms">
+  <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; max-width: 1000px; margin: 0 auto; align-items: start;">
+
+    <!-- Platforms -->
+    <div>
+      <p class="section-label">How We Teach</p>
+      <h2 class="section-title">Class <span>Platforms</span></h2>
+      <p class="section-desc" style="margin-bottom: 2rem;">Classes are conducted live via your preferred platform — you choose what's easiest for you!</p>
+      <div style="display: flex; flex-direction: column; gap: 1rem;">
+
+        <div style="display:flex; align-items:center; gap:1rem; background:var(--cream); border-radius:12px; padding:1.2rem 1.5rem; border:1px solid rgba(201,168,76,0.2);">
+          <div style="font-size:2rem; flex-shrink:0;">🎥</div>
+          <div>
+            <div style="font-family:'Cormorant Garamond',serif; font-size:1.2rem; color:var(--green); font-weight:600;">Zoom</div>
+            <div style="font-size:0.82rem; color:var(--text-mid);">HD video classes with screen sharing &amp; whiteboard</div>
+          </div>
+        </div>
+
+        <div style="display:flex; align-items:center; gap:1rem; background:var(--cream); border-radius:12px; padding:1.2rem 1.5rem; border:1px solid rgba(201,168,76,0.2);">
+          <div style="font-size:2rem; flex-shrink:0;">💬</div>
+          <div>
+            <div style="font-family:'Cormorant Garamond',serif; font-size:1.2rem; color:var(--green); font-weight:600;">WhatsApp</div>
+            <div style="font-size:0.82rem; color:var(--text-mid);">Easy &amp; convenient video calls for all devices</div>
+          </div>
+        </div>
+
+        <div style="display:flex; align-items:center; gap:1rem; background:var(--cream); border-radius:12px; padding:1.2rem 1.5rem; border:1px solid rgba(201,168,76,0.2);">
+          <div style="font-size:2rem; flex-shrink:0;">💼</div>
+          <div>
+            <div style="font-family:'Cormorant Garamond',serif; font-size:1.2rem; color:var(--green); font-weight:600;">Microsoft Teams</div>
+            <div style="font-size:0.82rem; color:var(--text-mid);">Professional platform ideal for structured sessions</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Languages -->
+    <div>
+      <p class="section-label">Languages Available</p>
+      <h2 class="section-title">Teaching <span>Languages</span></h2>
+      <p class="section-desc" style="margin-bottom: 2rem;">We teach in the language you are most comfortable with — no language barrier!</p>
+      <div style="display: flex; flex-direction: column; gap: 1rem;">
+
+        <div style="display:flex; align-items:center; gap:1rem; background: linear-gradient(135deg, var(--green), var(--green-mid)); border-radius:12px; padding:1.2rem 1.5rem;">
+          <div style="font-size:2rem; flex-shrink:0;">🇬🇧</div>
+          <div>
+            <div style="font-family:'Cormorant Garamond',serif; font-size:1.2rem; color:var(--gold); font-weight:600;">English</div>
+            <div style="font-size:0.82rem; color:rgba(248,243,232,0.7);">For international &amp; English-speaking students</div>
+          </div>
+        </div>
+
+        <div style="display:flex; align-items:center; gap:1rem; background: linear-gradient(135deg, var(--green), var(--green-mid)); border-radius:12px; padding:1.2rem 1.5rem;">
+          <div style="font-size:2rem; flex-shrink:0;">🇵🇰</div>
+          <div>
+            <div style="font-family:'Cormorant Garamond',serif; font-size:1.2rem; color:var(--gold); font-weight:600;">Urdu</div>
+            <div style="font-size:0.82rem; color:rgba(248,243,232,0.7);">For Urdu-speaking students across Pakistan and worldwide</div>
+          </div>
+        </div>
+
+        <div style="display:flex; align-items:center; gap:1rem; background: linear-gradient(135deg, var(--green), var(--green-mid)); border-radius:12px; padding:1.2rem 1.5rem;">
+          <div style="font-size:2rem; flex-shrink:0;">🌾</div>
+          <div>
+            <div style="font-family:'Cormorant Garamond',serif; font-size:1.2rem; color:var(--gold); font-weight:600;">Punjabi</div>
+            <div style="font-size:0.82rem; color:rgba(248,243,232,0.7);">Also available for Punjabi-speaking students</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- WHY US -->
+<section class="why" id="why">
+  <div class="why-header">
+    <p class="section-label">Why Choose Us</p>
+    <h2 class="section-title">The <span>Al-Haadi</span> Advantage</h2>
+  </div>
+  <div class="why-grid">
+    <div class="why-card">
+      <div class="why-icon">🌍</div>
+      <div class="why-title">Learn From Anywhere</div>
+      <div class="why-desc">Join from any country, any city. All you need is an internet connection and a device.</div>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">👤</div>
+      <div class="why-title">One-on-One Classes</div>
+      <div class="why-desc">Personal attention for every student. No group classes — your child gets full focus.</div>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">🕐</div>
+      <div class="why-title">Flexible Timing</div>
+      <div class="why-desc">Schedule classes at a time that works for you. We accommodate all timezones.</div>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">👨‍👩‍👧</div>
+      <div class="why-title">All Ages Welcome</div>
+      <div class="why-desc">We teach children as young as 4 years old and adults of all levels, including complete beginners.</div>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">✅</div>
+      <div class="why-title">Free Trial Class</div>
+      <div class="why-desc">Try a class for free before enrolling. No commitment required — experience the quality yourself.</div>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">📊</div>
+      <div class="why-title">Regular Progress Reports</div>
+      <div class="why-desc">Parents receive regular updates on their child's progress, attendance, and performance.</div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <p class="section-label" style="color:var(--gold-light);">Get In Touch</p>
+  <h2 class="section-title">Contact <span style="color:var(--gold);">Us</span></h2>
+  <p class="section-desc" style="margin:0 auto; color:rgba(248,243,232,0.7);">Ready to start your Quranic journey? Reach out to us and we'll get you enrolled right away.</p>
+
+  <div class="contact-cards">
+    <a href="https://wa.me/923105844512" class="contact-card" target="_blank">
+      <div class="contact-card-icon">💬</div>
+      <div class="contact-card-label">WhatsApp</div>
+      <div class="contact-card-value">+92 310 5844512</div>
+    </a>
+    <a href="mailto:awane8522@gmail.com" class="contact-card">
+      <div class="contact-card-icon">✉️</div>
+      <div class="contact-card-label">Email</div>
+      <div class="contact-card-value">awane8522@gmail.com</div>
+    </a>
+    <div class="contact-card">
+      <div class="contact-card-icon">🕌</div>
+      <div class="contact-card-label">Academy</div>
+      <div class="contact-card-value">Al-Haadi Islamic Centre</div>
+    </div>
+  </div>
+
+  <div class="contact-cta">
+    <p>"Enroll today and take the first step towards the Quran"</p>
+    <a href="https://wa.me/923105844512" class="btn-primary">Start Free Trial on WhatsApp</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2025 <span>Al-Haadi Islamic Centre</span> | Ustaz Ehtisham Ul Haq | All Rights Reserved</p>
+  <p style="margin-top:6px;">📧 awane8522@gmail.com &nbsp;|&nbsp; 📱 +92 310 5844512</p>
+</footer>
+
+</body>
+</html>
